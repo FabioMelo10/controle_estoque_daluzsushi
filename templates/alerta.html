@@ -1,0 +1,32 @@
+
+{% extends "base.html" %}
+{% block title %}Itens Abaixo do Mínimo{% endblock %}
+{% block content %}
+<h2 class="mb-3">Itens Abaixo do Mínimo</h2>
+<a href="/exportar" class="btn btn-outline-secondary mb-3">📥 Exportar para Excel</a>
+<table class="table table-bordered table-striped table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>Produto</th>
+            <th>Quantidade</th>
+            <th>Estoque Mínimo</th>
+            <th>Unidade</th>
+            <th>Preço Compra (R$)</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for nome, categoria, qtd, minimo, unidade, preco in produtos %}
+        <tr>
+            <td>{{ nome }}</td>
+            <td>{{ qtd }}</td>
+            <td>{{ minimo }}</td>
+            <td>{{ unidade }}</td>
+            <td>{{ preco }}</td>
+            <td><span class="badge bg-danger">Abaixo</span></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="/" class="btn btn-outline-primary">← Voltar</a>
+{% endblock %}

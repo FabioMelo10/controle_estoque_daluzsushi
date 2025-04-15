@@ -1,0 +1,15 @@
+
+{% extends "base.html" %}
+{% block title %}Início{% endblock %}
+{% block content %}
+<div class="list-group">
+  <a href="/categoria/Ingrediente" class="list-group-item list-group-item-action">🍣 Itens do Sushi</a>
+  <a href="/categoria/Bebida" class="list-group-item list-group-item-action">🥤 Bebidas</a>
+  <a href="/categoria/Cozinha" class="list-group-item list-group-item-action">👨‍🍳 Cozinha</a>
+  <a href="/categoria/Gerais" class="list-group-item list-group-item-action">🧼 Itens Gerais</a>
+  <a href="/alerta" class="list-group-item list-group-item-action">⚠️ Itens Abaixo do Mínimo</a>
+</div>
+<div class="mt-4">
+  <a href="/saida" class="btn btn-danger">Saída de Estoque</a>
+</div>
+{% endblock %}

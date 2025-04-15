@@ -1,0 +1,32 @@
+
+{% extends "base.html" %}
+{% block title %}Estoque - {{ categoria }}{% endblock %}
+{% block content %}
+<h2 class="mb-3">{{ categoria }}</h2>
+<a href="/entrada?categoria={{ categoria }}" class="btn btn-outline-success mb-3">➕ Adicionar Entrada</a>
+<table class="table table-bordered table-striped table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>Produto</th>
+            <th>Quantidade</th>
+            <th>Estoque Mínimo</th>
+            <th>Unidade</th>
+            <th>Preço Compra (R$)</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for nome, categoria, qtd, minimo, unidade, preco in produtos %}
+        <tr>
+            <td>{{ nome }}</td>
+            <td>{{ qtd }}</td>
+            <td>{{ minimo }}</td>
+            <td>{{ unidade }}</td>
+            <td>{{ preco }}</td>
+            <td>{% if qtd < minimo %}<span class="badge bg-danger">Abaixo</span>{% else %}<span class="badge bg-success">OK</span>{% endif %}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="/" class="btn btn-outline-primary">← Voltar</a>
+{% endblock %}
